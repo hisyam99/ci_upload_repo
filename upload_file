@@ -1,0 +1,15 @@
+#!/bin/bash
+
+mkdir -p /tmp/rom && cd /tmp/rom
+
+# URL file
+url=
+
+# aria2c
+time aria2c $url -x16 -s50
+
+# rclone
+mkdir -p ~/.config/rclone
+echo "$rclone_config" > ~/.config/rclone/rclone.conf
+time rclone copy * Hisyam99:roms -P
+rm -rf ~/.config/rclone

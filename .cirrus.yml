@@ -1,0 +1,18 @@
+env:
+    CIRRUS_CLONE_DEPTH: 1
+    CIRRUS_WORKING_DIR: "/tmp/alpine"
+    rclone_config: "ENCRYPTED[563f33c463813658628a6bbca5a105176d9181c6b3a2da82917d8aa0b39c45bce2623171b8c237fc507a0bb8f6d60eec]"
+
+task:
+    name: ci_upload_repo
+    timeout_in: 20m
+    container:
+      image: alpine:latest
+      cpu: 1
+      memory: 512M
+    system_update_script:
+      - apk update && apk upgrade
+      - apk add bash unzip curl aria2
+      - curl https://rclone.org/install.sh | bash
+    upload_file_script:
+      - ./upload_file
