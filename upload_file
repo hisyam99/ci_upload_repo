@@ -3,7 +3,7 @@
 mkdir -p /tmp/rom && cd /tmp/rom
 
 # URL file
-url=
+url=https://transfer.sh/ePA/RevengeOS-3.2-Q-UNOFFICIAL-certus-20210528-1441.zip
 
 # aria2c
 time aria2c $url -x16 -s50
